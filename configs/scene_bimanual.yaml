@@ -1,0 +1,10 @@
+# 场景配置（scripts/gen_scene.py 读取）。
+# objects: 物体资产目录列表（assets/objects/<name>/，内含 object.xml），
+#          pos 为物体底部中心的世界坐标（底面 z=0 约定，故 z = 桌面高度）。
+#          列表第一个物体即环境的目标物体（body 名默认 "target"）。
+output: assets/scenes/bimanual_gripper_scene.xml
+
+objects:
+  - name: box
+    dir: assets/objects/box
+    pos: [0.0, 0.0, 0.50]

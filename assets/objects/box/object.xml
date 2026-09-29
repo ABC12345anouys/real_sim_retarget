@@ -1,0 +1,11 @@
+<mujoco model="box_object">
+  <!-- 内置测试物体：小盒子。约定：底部中心为原点、底面 z=0，body 名 target
+       （env 通过配置里的目标 body 名引用它）。 -->
+  <worldbody>
+    <body name="target" pos="0 0 0">
+      <freejoint name="target_joint"/>
+      <geom name="target_geom" type="box" size="0.025 0.025 0.025" mass="0.05"
+        rgba="0.85 0.08 0.08 1" friction="1.0 0.3 0.05" solref="0.01 1"/>
+    </body>
+  </worldbody>
+</mujoco>

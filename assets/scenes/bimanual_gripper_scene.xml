@@ -1,0 +1,443 @@
+<mujoco model="bimanual_gripper">
+  <compiler angle="radian" autolimits="true"/>
+
+  <visual>
+    <headlight ambient="0.45 0.45 0.45" diffuse="0.5 0.5 0.5" specular="0.15 0.15 0.15"/>
+    <quality shadowsize="1024"/>
+    <rgba haze="0.35 0.35 0.35 1"/>
+  </visual>
+
+  <option integrator="implicitfast" solver="Newton" iterations="200" ls_iterations="50"
+    ls_tolerance="1e-4" cone="elliptic" impratio="10" timestep="0.002"/>
+
+  <size memory="100M"/>
+
+  <default>
+    <geom solimp="0.9 0.95 0.001 0.5 2" solref="0.01 1"/>
+    <default class="table">
+      <geom type="box" material="table_wood" friction="1.0 0.3 0.05"/>
+    </default>
+<default class="l_panda">
+  <material specular="0.5" shininess="0.25"/>
+  <joint armature="0.1" damping="1" axis="0 0 1" range="-2.8973 2.8973"/>
+  <general dyntype="none" biastype="affine" ctrlrange="-2.8973 2.8973" forcerange="-87 87"/>
+  <default class="l_panda/visual">
+    <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+  </default>
+  <default class="l_panda/collision">
+    <geom type="mesh" group="3"/>
+  </default>
+  <site size="0.001" rgba="0.5 0.5 0.5 0.3" group="4"/>
+</default>
+<default class="r_panda">
+  <material specular="0.5" shininess="0.25"/>
+  <joint armature="0.1" damping="1" axis="0 0 1" range="-2.8973 2.8973"/>
+  <general dyntype="none" biastype="affine" ctrlrange="-2.8973 2.8973" forcerange="-87 87"/>
+  <default class="r_panda/visual">
+    <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+  </default>
+  <default class="r_panda/collision">
+    <geom type="mesh" group="3"/>
+  </default>
+  <site size="0.001" rgba="0.5 0.5 0.5 0.3" group="4"/>
+</default>
+  </default>
+
+  <asset>
+    <material name="table_wood" rgba="0.6 0.45 0.3 1" specular="0.2" shininess="0.1"/>
+
+<material class="l_panda" name="l_white" rgba="1 1 1 1"/>
+<material class="l_panda" name="l_off_white" rgba="0.901961 0.921569 0.929412 1"/>
+<material class="l_panda" name="l_dark_grey" rgba="0.25 0.25 0.25 1"/>
+<material class="l_panda" name="l_green" rgba="0 1 0 1"/>
+<material class="l_panda" name="l_light_blue" rgba="0.039216 0.541176 0.780392 1"/>
+<mesh name="l_link0_c" file="../robot/panda/meshes/link0.stl"/>
+<mesh name="l_link1_c" file="../robot/panda/meshes/link1.stl"/>
+<mesh name="l_link2_c" file="../robot/panda/meshes/link2.stl"/>
+<mesh name="l_link3_c" file="../robot/panda/meshes/link3.stl"/>
+<mesh name="l_link4_c" file="../robot/panda/meshes/link4.stl"/>
+<mesh name="l_link5_c0" file="../robot/panda/meshes/link5_collision_0.obj"/>
+<mesh name="l_link5_c1" file="../robot/panda/meshes/link5_collision_1.obj"/>
+<mesh name="l_link5_c2" file="../robot/panda/meshes/link5_collision_2.obj"/>
+<mesh name="l_link6_c" file="../robot/panda/meshes/link6.stl"/>
+<mesh name="l_link7_c" file="../robot/panda/meshes/link7.stl"/>
+<mesh file="../robot/panda/meshes/link0_0.obj" name="l_link0_0"/>
+<mesh file="../robot/panda/meshes/link0_1.obj" name="l_link0_1"/>
+<mesh file="../robot/panda/meshes/link0_2.obj" name="l_link0_2"/>
+<mesh file="../robot/panda/meshes/link0_3.obj" name="l_link0_3"/>
+<mesh file="../robot/panda/meshes/link0_4.obj" name="l_link0_4"/>
+<mesh file="../robot/panda/meshes/link0_5.obj" name="l_link0_5"/>
+<mesh file="../robot/panda/meshes/link0_7.obj" name="l_link0_7"/>
+<mesh file="../robot/panda/meshes/link0_8.obj" name="l_link0_8"/>
+<mesh file="../robot/panda/meshes/link0_9.obj" name="l_link0_9"/>
+<mesh file="../robot/panda/meshes/link0_10.obj" name="l_link0_10"/>
+<mesh file="../robot/panda/meshes/link0_11.obj" name="l_link0_11"/>
+<mesh file="../robot/panda/meshes/link1.obj" name="l_link1"/>
+<mesh file="../robot/panda/meshes/link2.obj" name="l_link2"/>
+<mesh file="../robot/panda/meshes/link3_0.obj" name="l_link3_0"/>
+<mesh file="../robot/panda/meshes/link3_1.obj" name="l_link3_1"/>
+<mesh file="../robot/panda/meshes/link3_2.obj" name="l_link3_2"/>
+<mesh file="../robot/panda/meshes/link3_3.obj" name="l_link3_3"/>
+<mesh file="../robot/panda/meshes/link4_0.obj" name="l_link4_0"/>
+<mesh file="../robot/panda/meshes/link4_1.obj" name="l_link4_1"/>
+<mesh file="../robot/panda/meshes/link4_2.obj" name="l_link4_2"/>
+<mesh file="../robot/panda/meshes/link4_3.obj" name="l_link4_3"/>
+<mesh file="../robot/panda/meshes/link5_0.obj" name="l_link5_0"/>
+<mesh file="../robot/panda/meshes/link5_1.obj" name="l_link5_1"/>
+<mesh file="../robot/panda/meshes/link5_2.obj" name="l_link5_2"/>
+<mesh file="../robot/panda/meshes/link6_0.obj" name="l_link6_0"/>
+<mesh file="../robot/panda/meshes/link6_1.obj" name="l_link6_1"/>
+<mesh file="../robot/panda/meshes/link6_2.obj" name="l_link6_2"/>
+<mesh file="../robot/panda/meshes/link6_3.obj" name="l_link6_3"/>
+<mesh file="../robot/panda/meshes/link6_4.obj" name="l_link6_4"/>
+<mesh file="../robot/panda/meshes/link6_5.obj" name="l_link6_5"/>
+<mesh file="../robot/panda/meshes/link6_6.obj" name="l_link6_6"/>
+<mesh file="../robot/panda/meshes/link6_7.obj" name="l_link6_7"/>
+<mesh file="../robot/panda/meshes/link6_8.obj" name="l_link6_8"/>
+<mesh file="../robot/panda/meshes/link6_9.obj" name="l_link6_9"/>
+<mesh file="../robot/panda/meshes/link6_10.obj" name="l_link6_10"/>
+<mesh file="../robot/panda/meshes/link6_11.obj" name="l_link6_11"/>
+<mesh file="../robot/panda/meshes/link6_12.obj" name="l_link6_12"/>
+<mesh file="../robot/panda/meshes/link6_13.obj" name="l_link6_13"/>
+<mesh file="../robot/panda/meshes/link6_14.obj" name="l_link6_14"/>
+<mesh file="../robot/panda/meshes/link6_15.obj" name="l_link6_15"/>
+<mesh file="../robot/panda/meshes/link6_16.obj" name="l_link6_16"/>
+<mesh file="../robot/panda/meshes/link7_0.obj" name="l_link7_0"/>
+<mesh file="../robot/panda/meshes/link7_1.obj" name="l_link7_1"/>
+<mesh file="../robot/panda/meshes/link7_2.obj" name="l_link7_2"/>
+<mesh file="../robot/panda/meshes/link7_3.obj" name="l_link7_3"/>
+<mesh file="../robot/panda/meshes/link7_4.obj" name="l_link7_4"/>
+<mesh file="../robot/panda/meshes/link7_5.obj" name="l_link7_5"/>
+<mesh file="../robot/panda/meshes/link7_6.obj" name="l_link7_6"/>
+<mesh file="../robot/panda/meshes/link7_7.obj" name="l_link7_7"/>
+<material class="r_panda" name="r_white" rgba="1 1 1 1"/>
+<material class="r_panda" name="r_off_white" rgba="0.901961 0.921569 0.929412 1"/>
+<material class="r_panda" name="r_dark_grey" rgba="0.25 0.25 0.25 1"/>
+<material class="r_panda" name="r_green" rgba="0 1 0 1"/>
+<material class="r_panda" name="r_light_blue" rgba="0.039216 0.541176 0.780392 1"/>
+<mesh name="r_link0_c" file="../robot/panda/meshes/link0.stl"/>
+<mesh name="r_link1_c" file="../robot/panda/meshes/link1.stl"/>
+<mesh name="r_link2_c" file="../robot/panda/meshes/link2.stl"/>
+<mesh name="r_link3_c" file="../robot/panda/meshes/link3.stl"/>
+<mesh name="r_link4_c" file="../robot/panda/meshes/link4.stl"/>
+<mesh name="r_link5_c0" file="../robot/panda/meshes/link5_collision_0.obj"/>
+<mesh name="r_link5_c1" file="../robot/panda/meshes/link5_collision_1.obj"/>
+<mesh name="r_link5_c2" file="../robot/panda/meshes/link5_collision_2.obj"/>
+<mesh name="r_link6_c" file="../robot/panda/meshes/link6.stl"/>
+<mesh name="r_link7_c" file="../robot/panda/meshes/link7.stl"/>
+<mesh file="../robot/panda/meshes/link0_0.obj" name="r_link0_0"/>
+<mesh file="../robot/panda/meshes/link0_1.obj" name="r_link0_1"/>
+<mesh file="../robot/panda/meshes/link0_2.obj" name="r_link0_2"/>
+<mesh file="../robot/panda/meshes/link0_3.obj" name="r_link0_3"/>
+<mesh file="../robot/panda/meshes/link0_4.obj" name="r_link0_4"/>
+<mesh file="../robot/panda/meshes/link0_5.obj" name="r_link0_5"/>
+<mesh file="../robot/panda/meshes/link0_7.obj" name="r_link0_7"/>
+<mesh file="../robot/panda/meshes/link0_8.obj" name="r_link0_8"/>
+<mesh file="../robot/panda/meshes/link0_9.obj" name="r_link0_9"/>
+<mesh file="../robot/panda/meshes/link0_10.obj" name="r_link0_10"/>
+<mesh file="../robot/panda/meshes/link0_11.obj" name="r_link0_11"/>
+<mesh file="../robot/panda/meshes/link1.obj" name="r_link1"/>
+<mesh file="../robot/panda/meshes/link2.obj" name="r_link2"/>
+<mesh file="../robot/panda/meshes/link3_0.obj" name="r_link3_0"/>
+<mesh file="../robot/panda/meshes/link3_1.obj" name="r_link3_1"/>
+<mesh file="../robot/panda/meshes/link3_2.obj" name="r_link3_2"/>
+<mesh file="../robot/panda/meshes/link3_3.obj" name="r_link3_3"/>
+<mesh file="../robot/panda/meshes/link4_0.obj" name="r_link4_0"/>
+<mesh file="../robot/panda/meshes/link4_1.obj" name="r_link4_1"/>
+<mesh file="../robot/panda/meshes/link4_2.obj" name="r_link4_2"/>
+<mesh file="../robot/panda/meshes/link4_3.obj" name="r_link4_3"/>
+<mesh file="../robot/panda/meshes/link5_0.obj" name="r_link5_0"/>
+<mesh file="../robot/panda/meshes/link5_1.obj" name="r_link5_1"/>
+<mesh file="../robot/panda/meshes/link5_2.obj" name="r_link5_2"/>
+<mesh file="../robot/panda/meshes/link6_0.obj" name="r_link6_0"/>
+<mesh file="../robot/panda/meshes/link6_1.obj" name="r_link6_1"/>
+<mesh file="../robot/panda/meshes/link6_2.obj" name="r_link6_2"/>
+<mesh file="../robot/panda/meshes/link6_3.obj" name="r_link6_3"/>
+<mesh file="../robot/panda/meshes/link6_4.obj" name="r_link6_4"/>
+<mesh file="../robot/panda/meshes/link6_5.obj" name="r_link6_5"/>
+<mesh file="../robot/panda/meshes/link6_6.obj" name="r_link6_6"/>
+<mesh file="../robot/panda/meshes/link6_7.obj" name="r_link6_7"/>
+<mesh file="../robot/panda/meshes/link6_8.obj" name="r_link6_8"/>
+<mesh file="../robot/panda/meshes/link6_9.obj" name="r_link6_9"/>
+<mesh file="../robot/panda/meshes/link6_10.obj" name="r_link6_10"/>
+<mesh file="../robot/panda/meshes/link6_11.obj" name="r_link6_11"/>
+<mesh file="../robot/panda/meshes/link6_12.obj" name="r_link6_12"/>
+<mesh file="../robot/panda/meshes/link6_13.obj" name="r_link6_13"/>
+<mesh file="../robot/panda/meshes/link6_14.obj" name="r_link6_14"/>
+<mesh file="../robot/panda/meshes/link6_15.obj" name="r_link6_15"/>
+<mesh file="../robot/panda/meshes/link6_16.obj" name="r_link6_16"/>
+<mesh file="../robot/panda/meshes/link7_0.obj" name="r_link7_0"/>
+<mesh file="../robot/panda/meshes/link7_1.obj" name="r_link7_1"/>
+<mesh file="../robot/panda/meshes/link7_2.obj" name="r_link7_2"/>
+<mesh file="../robot/panda/meshes/link7_3.obj" name="r_link7_3"/>
+<mesh file="../robot/panda/meshes/link7_4.obj" name="r_link7_4"/>
+<mesh file="../robot/panda/meshes/link7_5.obj" name="r_link7_5"/>
+<mesh file="../robot/panda/meshes/link7_6.obj" name="r_link7_6"/>
+<mesh file="../robot/panda/meshes/link7_7.obj" name="r_link7_7"/>
+  </asset>
+
+  <worldbody>
+    <geom name="floor" type="plane" size="5 5 0.1" pos="0 0 0" rgba="0.85 0.85 0.87 1" friction="1.2 0.3 0.05"/>
+    <geom name="table" class="table" size="0.45 0.4 0.05" pos="0.0 0.0 0.45"/>
+
+<body name="target" pos="0.0 0.0 0.5">
+  <freejoint name="target_joint"/>
+  <geom name="target_geom" type="box" size="0.025 0.025 0.025" mass="0.05" rgba="0.85 0.08 0.08 1" friction="1.0 0.3 0.05" solref="0.01 1"/>
+</body>
+
+    <light name="key_light" directional="true" pos="-0.5 -0.7 2.2"
+      dir="0.25 0.35 -1" diffuse="0.5 0.5 0.5" specular="0.1 0.1 0.1"/>
+    <light name="fill_light" directional="true" pos="0.6 0.5 1.8"
+      dir="-0.3 -0.25 -1" diffuse="0.3 0.3 0.3" specular="0.05 0.05 0.05"/>
+
+    <camera name="head" pos="0 0 1.6" xyaxes="1 0 0 0 1 0" fovy="60"/>
+<body name="l_base" pos="-0.62 0.0 0.0" quat="1 0 0 0">
+  <body name="l_link0" childclass="l_panda">
+    <inertial mass="0.629769" pos="-0.041018 -0.00014 0.049974" fullinertia="0.00315 0.00388 0.004285 8.2904e-7 0.00015 8.2299e-6"/>
+    <geom mesh="l_link0_0" material="l_off_white" class="l_panda/visual"/>
+    <geom mesh="l_link0_1" material="l_dark_grey" class="l_panda/visual"/>
+    <geom mesh="l_link0_2" material="l_off_white" class="l_panda/visual"/>
+    <geom mesh="l_link0_3" material="l_dark_grey" class="l_panda/visual"/>
+    <geom mesh="l_link0_4" material="l_off_white" class="l_panda/visual"/>
+    <geom mesh="l_link0_5" material="l_dark_grey" class="l_panda/visual"/>
+    <geom mesh="l_link0_7" material="l_white" class="l_panda/visual"/>
+    <geom mesh="l_link0_8" material="l_white" class="l_panda/visual"/>
+    <geom mesh="l_link0_9" material="l_dark_grey" class="l_panda/visual"/>
+    <geom mesh="l_link0_10" material="l_off_white" class="l_panda/visual"/>
+    <geom mesh="l_link0_11" material="l_white" class="l_panda/visual"/>
+    <geom mesh="l_link0_c" class="l_panda/collision"/>
+    <body name="l_link1" pos="0 0 0.333">
+      <inertial mass="4.970684" pos="0.003875 0.002081 -0.04762" fullinertia="0.70337 0.70661 0.0091170 -0.00013900 0.0067720 0.019169"/>
+      <joint name="l_joint1" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+      <geom material="l_white" mesh="l_link1" class="l_panda/visual"/>
+      <geom mesh="l_link1_c" class="l_panda/collision"/>
+      <body name="l_link2" quat="1 -1 0 0">
+        <inertial mass="0.646926" pos="-0.003141 -0.02872 0.003495" fullinertia="0.0079620 2.8110e-2 2.5995e-2 -3.925e-3 1.0254e-2 7.04e-4"/>
+        <joint name="l_joint2" pos="0 0 0" axis="0 0 1" limited="true" range="-1.7628 1.7628" damping="0.1"/>
+        <geom material="l_white" mesh="l_link2" class="l_panda/visual"/>
+        <geom mesh="l_link2_c" class="l_panda/collision"/>
+        <body name="l_link3" pos="0 -0.316 0" quat="1 1 0 0">
+          <joint name="l_joint3" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+          <inertial mass="3.228604" pos="2.7518e-2 3.9252e-2 -6.6502e-2" fullinertia="3.7242e-2 3.6155e-2 1.083e-2 -4.761e-3 -1.1396e-2 -1.2805e-2"/>
+          <geom mesh="l_link3_0" material="l_white" class="l_panda/visual"/>
+          <geom mesh="l_link3_1" material="l_white" class="l_panda/visual"/>
+          <geom mesh="l_link3_2" material="l_white" class="l_panda/visual"/>
+          <geom mesh="l_link3_3" material="l_dark_grey" class="l_panda/visual"/>
+          <geom mesh="l_link3_c" class="l_panda/collision"/>
+          <body name="l_link4" pos="0.0825 0 0" quat="1 1 0 0">
+            <inertial mass="3.587895" pos="-5.317e-2 1.04419e-1 2.7454e-2" fullinertia="2.5853e-2 1.9552e-2 2.8323e-2 7.796e-3 -1.332e-3 8.641e-3"/>
+            <joint name="l_joint4" pos="0 0 0" axis="0 0 1" limited="true" range="-3.0718 -0.0698" damping="0.1"/>
+            <geom mesh="l_link4_0" material="l_white" class="l_panda/visual"/>
+            <geom mesh="l_link4_1" material="l_white" class="l_panda/visual"/>
+            <geom mesh="l_link4_2" material="l_dark_grey" class="l_panda/visual"/>
+            <geom mesh="l_link4_3" material="l_white" class="l_panda/visual"/>
+            <geom mesh="l_link4_c" class="l_panda/collision"/>
+            <body name="l_link5" pos="-0.0825 0.384 0" quat="1 -1 0 0">
+              <inertial mass="1.225946" pos="-1.1953e-2 4.1065e-2 -3.8437e-2" fullinertia="3.5549e-2 2.9474e-2 8.627e-3 -2.117e-3 -4.037e-3 2.29e-4"/>
+              <joint name="l_joint5" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+              <geom mesh="l_link5_0" material="l_dark_grey" class="l_panda/visual"/>
+              <geom mesh="l_link5_1" material="l_white" class="l_panda/visual"/>
+              <geom mesh="l_link5_2" material="l_white" class="l_panda/visual"/>
+              <geom mesh="l_link5_c0" class="l_panda/collision"/>
+              <geom mesh="l_link5_c1" class="l_panda/collision"/>
+              <geom mesh="l_link5_c2" class="l_panda/collision"/>
+              <body name="l_link6" quat="1 1 0 0">
+                <inertial mass="1.666555" pos="6.0149e-2 -1.4117e-2 -1.0517e-2" fullinertia="1.964e-3 4.354e-3 5.433e-3 1.09e-4 -1.158e-3 3.41e-4"/>
+                <joint name="l_joint6" pos="0 0 0" axis="0 0 1" limited="true" range="-0.0175 3.7525" damping="0.01"/>
+                <geom mesh="l_link6_0" material="l_off_white" class="l_panda/visual"/>
+                <geom mesh="l_link6_1" material="l_white" class="l_panda/visual"/>
+                <geom mesh="l_link6_2" material="l_dark_grey" class="l_panda/visual"/>
+                <geom mesh="l_link6_3" material="l_white" class="l_panda/visual"/>
+                <geom mesh="l_link6_4" material="l_white" class="l_panda/visual"/>
+                <geom mesh="l_link6_5" material="l_white" class="l_panda/visual"/>
+                <geom mesh="l_link6_6" material="l_white" class="l_panda/visual"/>
+                <geom mesh="l_link6_7" material="l_light_blue" class="l_panda/visual"/>
+                <geom mesh="l_link6_8" material="l_light_blue" class="l_panda/visual"/>
+                <geom mesh="l_link6_9" material="l_dark_grey" class="l_panda/visual"/>
+                <geom mesh="l_link6_10" material="l_dark_grey" class="l_panda/visual"/>
+                <geom mesh="l_link6_11" material="l_white" class="l_panda/visual"/>
+                <geom mesh="l_link6_12" material="l_green" class="l_panda/visual"/>
+                <geom mesh="l_link6_13" material="l_white" class="l_panda/visual"/>
+                <geom mesh="l_link6_14" material="l_dark_grey" class="l_panda/visual"/>
+                <geom mesh="l_link6_15" material="l_dark_grey" class="l_panda/visual"/>
+                <geom mesh="l_link6_16" material="l_white" class="l_panda/visual"/>
+                <geom mesh="l_link6_c" class="l_panda/collision"/>
+                <body name="l_link7" pos="0.088 0 0" quat="1 1 0 0">
+                  <inertial mass="7.35522e-01" pos="1.0517e-2 -4.252e-3 6.1597e-2" fullinertia="1.2516e-2 1.0027e-2 4.815e-3 -4.28e-4 -1.196e-3 -7.41e-4"/>
+                  <joint name="l_joint7" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.01"/>
+                  <geom mesh="l_link7_0" material="l_white" class="l_panda/visual"/>
+                  <geom mesh="l_link7_1" material="l_dark_grey" class="l_panda/visual"/>
+                  <geom mesh="l_link7_2" material="l_dark_grey" class="l_panda/visual"/>
+                  <geom mesh="l_link7_3" material="l_dark_grey" class="l_panda/visual"/>
+                  <geom mesh="l_link7_4" material="l_dark_grey" class="l_panda/visual"/>
+                  <geom mesh="l_link7_5" material="l_dark_grey" class="l_panda/visual"/>
+                  <geom mesh="l_link7_6" material="l_dark_grey" class="l_panda/visual"/>
+                  <geom mesh="l_link7_7" material="l_white" class="l_panda/visual"/>
+                  <geom mesh="l_link7_c" class="l_panda/collision"/>
+                  <body name="l_attachment" pos="0 0 0.107" quat="0.3826834 0 0 0.9238795">
+<body name="l_gripper_mount" childclass="l_gripper">
+  <inertial mass="0.05" pos="0 0 0" diaginertia="1e-5 1e-5 1e-5"/>
+  <geom name="l_gripper_base_geom" size="0.035 0.02 0.012" pos="0 0 0.006"/>
+  <site name="l_gripper_site" pos="0 0 -0.075" size="0.004" rgba="0.1 0.9 0.1 0.6"/>
+  <joint name="l_finger_joint" pos="0 0 0" axis="0 1 0" range="0 0.04"/>
+  <body name="l_finger1" pos="0 -0.005 -0.032">
+    <inertial mass="0.02" pos="0 0 0" diaginertia="2e-6 2e-6 2e-6"/>
+    <geom name="l_finger1_pad" size="0.02 0.004 0.032" rgba="0.6 0.6 0.62 1"/>
+  </body>
+  <joint name="l_finger_mimic_joint" pos="0 0 0" axis="0 1 0" range="-0.04 0"/>
+  <body name="l_finger2" pos="0 0.005 -0.032">
+    <inertial mass="0.02" pos="0 0 0" diaginertia="2e-6 2e-6 2e-6"/>
+    <geom name="l_finger2_pad" size="0.02 0.004 0.032" rgba="0.6 0.6 0.62 1"/>
+  </body>
+</body>
+                    <site name="l_attachment_site"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </body>
+</body>
+<body name="r_base" pos="0.62 0.0 0.0" quat="0 0 0 1">
+  <body name="r_link0" childclass="r_panda">
+    <inertial mass="0.629769" pos="-0.041018 -0.00014 0.049974" fullinertia="0.00315 0.00388 0.004285 8.2904e-7 0.00015 8.2299e-6"/>
+    <geom mesh="r_link0_0" material="r_off_white" class="r_panda/visual"/>
+    <geom mesh="r_link0_1" material="r_dark_grey" class="r_panda/visual"/>
+    <geom mesh="r_link0_2" material="r_off_white" class="r_panda/visual"/>
+    <geom mesh="r_link0_3" material="r_dark_grey" class="r_panda/visual"/>
+    <geom mesh="r_link0_4" material="r_off_white" class="r_panda/visual"/>
+    <geom mesh="r_link0_5" material="r_dark_grey" class="r_panda/visual"/>
+    <geom mesh="r_link0_7" material="r_white" class="r_panda/visual"/>
+    <geom mesh="r_link0_8" material="r_white" class="r_panda/visual"/>
+    <geom mesh="r_link0_9" material="r_dark_grey" class="r_panda/visual"/>
+    <geom mesh="r_link0_10" material="r_off_white" class="r_panda/visual"/>
+    <geom mesh="r_link0_11" material="r_white" class="r_panda/visual"/>
+    <geom mesh="r_link0_c" class="r_panda/collision"/>
+    <body name="r_link1" pos="0 0 0.333">
+      <inertial mass="4.970684" pos="0.003875 0.002081 -0.04762" fullinertia="0.70337 0.70661 0.0091170 -0.00013900 0.0067720 0.019169"/>
+      <joint name="r_joint1" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+      <geom material="r_white" mesh="r_link1" class="r_panda/visual"/>
+      <geom mesh="r_link1_c" class="r_panda/collision"/>
+      <body name="r_link2" quat="1 -1 0 0">
+        <inertial mass="0.646926" pos="-0.003141 -0.02872 0.003495" fullinertia="0.0079620 2.8110e-2 2.5995e-2 -3.925e-3 1.0254e-2 7.04e-4"/>
+        <joint name="r_joint2" pos="0 0 0" axis="0 0 1" limited="true" range="-1.7628 1.7628" damping="0.1"/>
+        <geom material="r_white" mesh="r_link2" class="r_panda/visual"/>
+        <geom mesh="r_link2_c" class="r_panda/collision"/>
+        <body name="r_link3" pos="0 -0.316 0" quat="1 1 0 0">
+          <joint name="r_joint3" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+          <inertial mass="3.228604" pos="2.7518e-2 3.9252e-2 -6.6502e-2" fullinertia="3.7242e-2 3.6155e-2 1.083e-2 -4.761e-3 -1.1396e-2 -1.2805e-2"/>
+          <geom mesh="r_link3_0" material="r_white" class="r_panda/visual"/>
+          <geom mesh="r_link3_1" material="r_white" class="r_panda/visual"/>
+          <geom mesh="r_link3_2" material="r_white" class="r_panda/visual"/>
+          <geom mesh="r_link3_3" material="r_dark_grey" class="r_panda/visual"/>
+          <geom mesh="r_link3_c" class="r_panda/collision"/>
+          <body name="r_link4" pos="0.0825 0 0" quat="1 1 0 0">
+            <inertial mass="3.587895" pos="-5.317e-2 1.04419e-1 2.7454e-2" fullinertia="2.5853e-2 1.9552e-2 2.8323e-2 7.796e-3 -1.332e-3 8.641e-3"/>
+            <joint name="r_joint4" pos="0 0 0" axis="0 0 1" limited="true" range="-3.0718 -0.0698" damping="0.1"/>
+            <geom mesh="r_link4_0" material="r_white" class="r_panda/visual"/>
+            <geom mesh="r_link4_1" material="r_white" class="r_panda/visual"/>
+            <geom mesh="r_link4_2" material="r_dark_grey" class="r_panda/visual"/>
+            <geom mesh="r_link4_3" material="r_white" class="r_panda/visual"/>
+            <geom mesh="r_link4_c" class="r_panda/collision"/>
+            <body name="r_link5" pos="-0.0825 0.384 0" quat="1 -1 0 0">
+              <inertial mass="1.225946" pos="-1.1953e-2 4.1065e-2 -3.8437e-2" fullinertia="3.5549e-2 2.9474e-2 8.627e-3 -2.117e-3 -4.037e-3 2.29e-4"/>
+              <joint name="r_joint5" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.1"/>
+              <geom mesh="r_link5_0" material="r_dark_grey" class="r_panda/visual"/>
+              <geom mesh="r_link5_1" material="r_white" class="r_panda/visual"/>
+              <geom mesh="r_link5_2" material="r_white" class="r_panda/visual"/>
+              <geom mesh="r_link5_c0" class="r_panda/collision"/>
+              <geom mesh="r_link5_c1" class="r_panda/collision"/>
+              <geom mesh="r_link5_c2" class="r_panda/collision"/>
+              <body name="r_link6" quat="1 1 0 0">
+                <inertial mass="1.666555" pos="6.0149e-2 -1.4117e-2 -1.0517e-2" fullinertia="1.964e-3 4.354e-3 5.433e-3 1.09e-4 -1.158e-3 3.41e-4"/>
+                <joint name="r_joint6" pos="0 0 0" axis="0 0 1" limited="true" range="-0.0175 3.7525" damping="0.01"/>
+                <geom mesh="r_link6_0" material="r_off_white" class="r_panda/visual"/>
+                <geom mesh="r_link6_1" material="r_white" class="r_panda/visual"/>
+                <geom mesh="r_link6_2" material="r_dark_grey" class="r_panda/visual"/>
+                <geom mesh="r_link6_3" material="r_white" class="r_panda/visual"/>
+                <geom mesh="r_link6_4" material="r_white" class="r_panda/visual"/>
+                <geom mesh="r_link6_5" material="r_white" class="r_panda/visual"/>
+                <geom mesh="r_link6_6" material="r_white" class="r_panda/visual"/>
+                <geom mesh="r_link6_7" material="r_light_blue" class="r_panda/visual"/>
+                <geom mesh="r_link6_8" material="r_light_blue" class="r_panda/visual"/>
+                <geom mesh="r_link6_9" material="r_dark_grey" class="r_panda/visual"/>
+                <geom mesh="r_link6_10" material="r_dark_grey" class="r_panda/visual"/>
+                <geom mesh="r_link6_11" material="r_white" class="r_panda/visual"/>
+                <geom mesh="r_link6_12" material="r_green" class="r_panda/visual"/>
+                <geom mesh="r_link6_13" material="r_white" class="r_panda/visual"/>
+                <geom mesh="r_link6_14" material="r_dark_grey" class="r_panda/visual"/>
+                <geom mesh="r_link6_15" material="r_dark_grey" class="r_panda/visual"/>
+                <geom mesh="r_link6_16" material="r_white" class="r_panda/visual"/>
+                <geom mesh="r_link6_c" class="r_panda/collision"/>
+                <body name="r_link7" pos="0.088 0 0" quat="1 1 0 0">
+                  <inertial mass="7.35522e-01" pos="1.0517e-2 -4.252e-3 6.1597e-2" fullinertia="1.2516e-2 1.0027e-2 4.815e-3 -4.28e-4 -1.196e-3 -7.41e-4"/>
+                  <joint name="r_joint7" pos="0 0 0" axis="0 0 1" limited="true" range="-2.8973 2.8973" damping="0.01"/>
+                  <geom mesh="r_link7_0" material="r_white" class="r_panda/visual"/>
+                  <geom mesh="r_link7_1" material="r_dark_grey" class="r_panda/visual"/>
+                  <geom mesh="r_link7_2" material="r_dark_grey" class="r_panda/visual"/>
+                  <geom mesh="r_link7_3" material="r_dark_grey" class="r_panda/visual"/>
+                  <geom mesh="r_link7_4" material="r_dark_grey" class="r_panda/visual"/>
+                  <geom mesh="r_link7_5" material="r_dark_grey" class="r_panda/visual"/>
+                  <geom mesh="r_link7_6" material="r_dark_grey" class="r_panda/visual"/>
+                  <geom mesh="r_link7_7" material="r_white" class="r_panda/visual"/>
+                  <geom mesh="r_link7_c" class="r_panda/collision"/>
+                  <body name="r_attachment" pos="0 0 0.107" quat="0.3826834 0 0 0.9238795">
+<body name="r_gripper_mount" childclass="r_gripper">
+  <inertial mass="0.05" pos="0 0 0" diaginertia="1e-5 1e-5 1e-5"/>
+  <geom name="r_gripper_base_geom" size="0.035 0.02 0.012" pos="0 0 0.006"/>
+  <site name="r_gripper_site" pos="0 0 -0.075" size="0.004" rgba="0.1 0.9 0.1 0.6"/>
+  <joint name="r_finger_joint" pos="0 0 0" axis="0 1 0" range="0 0.04"/>
+  <body name="r_finger1" pos="0 -0.005 -0.032">
+    <inertial mass="0.02" pos="0 0 0" diaginertia="2e-6 2e-6 2e-6"/>
+    <geom name="r_finger1_pad" size="0.02 0.004 0.032" rgba="0.6 0.6 0.62 1"/>
+  </body>
+  <joint name="r_finger_mimic_joint" pos="0 0 0" axis="0 1 0" range="-0.04 0"/>
+  <body name="r_finger2" pos="0 0.005 -0.032">
+    <inertial mass="0.02" pos="0 0 0" diaginertia="2e-6 2e-6 2e-6"/>
+    <geom name="r_finger2_pad" size="0.02 0.004 0.032" rgba="0.6 0.6 0.62 1"/>
+  </body>
+</body>
+                    <site name="r_attachment_site"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </body>
+</body>
+  </worldbody>
+
+  <equality>
+<joint name="l_gripper_sync" joint1="finger_joint" joint2="finger_mimic_joint" coef="-1"/>
+<joint name="r_gripper_sync" joint1="finger_joint" joint2="finger_mimic_joint" coef="-1"/>
+  </equality>
+
+  <actuator>
+<position name="l_actuator1" joint="l_joint1" ctrlrange="-2.8973 2.8973" kp="300.0" forcerange="-87.0 87.0"/>
+<position name="l_actuator2" joint="l_joint2" ctrlrange="-1.7628 1.7628" kp="300.0" forcerange="-87.0 87.0"/>
+<position name="l_actuator3" joint="l_joint3" ctrlrange="-2.8973 2.8973" kp="300.0" forcerange="-87.0 87.0"/>
+<position name="l_actuator4" joint="l_joint4" ctrlrange="-3.0718 -0.0698" kp="300.0" forcerange="-87.0 87.0"/>
+<position name="l_actuator5" joint="l_joint5" ctrlrange="-2.8973 2.8973" kp="100.0" forcerange="-87.0 87.0"/>
+<position name="l_actuator6" joint="l_joint6" ctrlrange="-0.0175 3.7525" kp="100.0" forcerange="-12.0 12.0"/>
+<position name="l_actuator7" joint="l_joint7" ctrlrange="-2.8973 2.8973" kp="100.0" forcerange="-12.0 12.0"/>
+<position name="l_gripper" joint="finger_joint" kp="2000" ctrlrange="0 0.04" forcerange="-30 30"/>
+<position name="r_actuator1" joint="r_joint1" ctrlrange="-2.8973 2.8973" kp="300.0" forcerange="-87.0 87.0"/>
+<position name="r_actuator2" joint="r_joint2" ctrlrange="-1.7628 1.7628" kp="300.0" forcerange="-87.0 87.0"/>
+<position name="r_actuator3" joint="r_joint3" ctrlrange="-2.8973 2.8973" kp="300.0" forcerange="-87.0 87.0"/>
+<position name="r_actuator4" joint="r_joint4" ctrlrange="-3.0718 -0.0698" kp="300.0" forcerange="-87.0 87.0"/>
+<position name="r_actuator5" joint="r_joint5" ctrlrange="-2.8973 2.8973" kp="100.0" forcerange="-87.0 87.0"/>
+<position name="r_actuator6" joint="r_joint6" ctrlrange="-0.0175 3.7525" kp="100.0" forcerange="-12.0 12.0"/>
+<position name="r_actuator7" joint="r_joint7" ctrlrange="-2.8973 2.8973" kp="100.0" forcerange="-12.0 12.0"/>
+<position name="r_gripper" joint="finger_joint" kp="2000" ctrlrange="0 0.04" forcerange="-30 30"/>
+  </actuator>
+
+  <keyframe>
+    <key name="home" qpos="0 0 0.53 1 0 0 0 -0.5841 -0.3123 0.2378 -1.303 -0.9488 1.8973 0.4535 0.03 -0.03 -0.5929 -0.3362 0.1876 -1.3412 -0.8648 2.2275 0.3358 0.03 -0.03" ctrl="-0.5841 -0.3123 0.2378 -1.303 -0.9488 1.8973 0.4535 0.03 -0.5929 -0.3362 0.1876 -1.3412 -0.8648 2.2275 0.3358 0.03"/>
+  </keyframe>
+</mujoco>

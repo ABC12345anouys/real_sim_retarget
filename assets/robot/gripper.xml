@@ -1,0 +1,47 @@
+<mujoco model="parallel_gripper">
+  <!-- 平行双指夹爪（左右对称），通过 prismatic 关节 + equality mimic 实现单驱动器开合。
+       命名约定（gen 时由 retarget/scene_builder.py 加 l_/r_ 前缀）：
+         body  : gripper_mount / finger1 / finger2
+         joint : finger_joint(驱动, range 0~0.04) / finger_mimic_joint(从动, -0.04~0, equality coef=-1)
+         geom  : gripper_base_geom / finger1_pad / finger2_pad（指垫即碰撞 box）
+         site  : gripper_site（IK 目标，两指之间、指尖下方）
+         act   : gripper（position, kp=2000）
+       开合量 q=finger_joint：q=0 时两指垫间隙 2mm，q=0.04 时间隙 82mm。
+       挂载点：Panda 法兰 attachment body（pos "0 0 0.107", quat 45° about x）。 -->
+
+  <default>
+    <default class="gripper">
+      <joint type="slide" armature="0.01" damping="5" frictionloss="1"/>
+      <geom type="box" friction="1.2 0.3 0.05" solref="0.01 1" rgba="0.15 0.15 0.17 1"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <body name="gripper_mount" childclass="gripper">
+      <inertial mass="0.05" pos="0 0 0" diaginertia="1e-5 1e-5 1e-5"/>
+      <geom name="gripper_base_geom" size="0.035 0.02 0.012" pos="0 0 0.006"/>
+      <site name="gripper_site" pos="0 0 -0.075" size="0.004" rgba="0.1 0.9 0.1 0.6"/>
+
+      <joint name="finger_joint" pos="0 0 0" axis="0 1 0" range="0 0.04"/>
+      <body name="finger1" pos="0 -0.005 -0.032">
+        <inertial mass="0.02" pos="0 0 0" diaginertia="2e-6 2e-6 2e-6"/>
+        <geom name="finger1_pad" size="0.02 0.004 0.032" rgba="0.6 0.6 0.62 1"/>
+      </body>
+
+      <joint name="finger_mimic_joint" pos="0 0 0" axis="0 1 0" range="-0.04 0"/>
+      <body name="finger2" pos="0 0.005 -0.032">
+        <inertial mass="0.02" pos="0 0 0" diaginertia="2e-6 2e-6 2e-6"/>
+        <geom name="finger2_pad" size="0.02 0.004 0.032" rgba="0.6 0.6 0.62 1"/>
+      </body>
+    </body>
+  </worldbody>
+
+  <equality>
+    <joint name="gripper_sync" joint1="finger_joint" joint2="finger_mimic_joint" coef="-1"/>
+  </equality>
+
+  <actuator>
+    <position name="gripper" joint="finger_joint" kp="2000" ctrlrange="0 0.04"
+      forcerange="-30 30"/>
+  </actuator>
+</mujoco>
